@@ -39,49 +39,47 @@ class HomeScreen extends StatelessWidget{
     );
   }
   Widget buildPortraitScreen(){
-    return Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        CircleAvatar(
+          radius: 190,
+          backgroundImage: NetworkImage(
+              "https://cdn.pixabay.com/photo/2016/01/09/18/27/camera-1130731_1280.jpg"
+          ),
+        ),
+        Text("John Doe",
+          style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.w600
+          ),
+        ),
+        Wrap(
           children: [
-            CircleAvatar(
-              radius: 190,
-              backgroundImage: NetworkImage(
-                  "https://cdn.pixabay.com/photo/2016/01/09/18/27/camera-1130731_1280.jpg"
-              ),
-            ),
-            Text("John Doe",
-              style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w600
-              ),
-            ),
-            Wrap(
-              children: [
-                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
-                Text("Sed euismod mauris vel sem vulputate, eget efficitur justo efficitur.vehicula libero"),
-              ],
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Expanded(
-              child: GridView.builder(
-                  shrinkWrap: true,
-                  itemCount: images.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      crossAxisSpacing: 4,
-                      mainAxisSpacing: 3
-                  ),
-                  itemBuilder: (context,index){
-                    return Image.network(
-                        images[index],
-                        fit: BoxFit.cover
-                    );
-                  }),
-            )
+            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
+            Text("Sed euismod mauris vel sem vulputate, eget efficitur justo efficitur.vehicula libero"),
           ],
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        Expanded(
+          child: GridView.builder(
+              shrinkWrap: true,
+              itemCount: images.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 4,
+                  mainAxisSpacing: 3
+              ),
+              itemBuilder: (context,index){
+                return Image.network(
+                    images[index],
+                    fit: BoxFit.cover
+                );
+              }),
         )
+      ],
     );
   }
   Widget buildLandScapeScreen(){
